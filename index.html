@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DLS Tech · SQL Accounting Assistant</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">DLS</span>
+      <div>
+        <h1>SQL Accounting Assistant</h1>
+        <p class="sub">dlstech.com.my · powered by SQL Account</p>
+      </div>
+    </div>
+    <div id="statusPill" class="pill pill-amber">Demo mode</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Your accounts, just by chatting.</h2>
+      <p>Ask about stock and customers, or create invoices &amp; delivery orders —
+         in plain words. This is a live demo with sample data.</p>
+    </section>
+
+    <!-- THE CONVERSATION -->
+    <section class="card chat-card">
+      <div class="chat" id="chat">
+        <div class="bubble bot">
+          Hi, I'm your DLS Tech assistant 👋<br/>
+          Try one of these, or just type your own:
+        </div>
+      </div>
+
+      <div class="chips" id="chips">
+        <button class="chip" data-msg="stock ANT">📦 stock ANT</button>
+        <button class="chip" data-msg="customer 300-C0001">👤 customer 300-C0001</button>
+        <button class="chip" data-msg="invoice 300-C0001 ANT 5">🧾 invoice 300-C0001 ANT 5</button>
+        <button class="chip" data-msg="help">❓ help</button>
+      </div>
+
+      <div class="composer">
+        <input id="msgInput" type="text" autocomplete="off"
+               placeholder="Type a message…  e.g. how many ROUTER-X left" />
+        <button id="sendBtn" class="btn btn-primary">Send</button>
+      </div>
+    </section>
+
+    <!-- CONNECTION (secondary) -->
+    <section class="card">
+      <details id="connBox" open>
+        <summary>⚙️ Connect your SQL Accounting database</summary>
+        <div class="preview-note">
+          👀 <b>Preview of the real app's connection screen.</b> On your office PC,
+          these fields link straight to SQL Accounting using SQL's <b>official SDK</b>
+          (no third-party server). This public page can't reach your PC, so the buttons
+          here just explain what happens — your real data stays on your machine.
+        </div>
+
+        <label>DCF file path
+          <input id="dcfPath" type="text" placeholder="C:\\eStream\\SQLAccounting\\Share\\Default.DCF" />
+          <span class="field-hint">You type this in — it's shown on your SQL Accounting login screen.</span>
+        </label>
+        <label>Database name (.FDB)
+          <input id="dbName" type="text" placeholder="ACC-0001.FDB" />
+          <span class="field-hint">The company database you pick when logging into SQL Accounting.</span>
+        </label>
+        <div class="row">
+          <label style="flex:1">Username
+            <input id="user" type="text" placeholder="ADMIN" />
+          </label>
+          <label style="flex:1">Password
+            <input id="password" type="password" placeholder="leave blank if none" />
+          </label>
+        </div>
+        <div class="row">
+          <button id="testBtn" class="btn">Test connection</button>
+          <button id="saveBtn" class="btn btn-primary">Save &amp; link</button>
+          <span id="connMsg" class="conn-msg"></span>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built for DLS Tech · demo preview · sample data stays in your browser</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
